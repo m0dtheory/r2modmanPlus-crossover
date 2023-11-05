@@ -62,7 +62,7 @@ Follow these steps to successfully configure CrossOver for modding:
 
        ![](https://i.imgur.com/u0jhP28.png)
    - Select `r2modmanPlus-Modded.bat` as the designated command.
-   - Append the Steam game ID and "modded" as command arguments.
+   - Append the Steam game ID and `modded` as command arguments.
    - Save this customized command as a launcher. Example:
 
      ```
