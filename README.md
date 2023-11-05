@@ -9,7 +9,7 @@
 
 ## This fork
 > [!NOTE]
->This adaptation was designed for my own ease of use and is in no way production ready. If I eventually find time, I will properly integrate the crossover overrides in the Settings menu of each games.
+>This modification was crafted with a focus on enhancing my own convenience and should not be considered suitable for production. If circumstances allow, I plan to integrate CrossOver overrides more extensively into the Settings menu of each individual game.
 
 This fork is a slightly modified version of r2modman. 
 
