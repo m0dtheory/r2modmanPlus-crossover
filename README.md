@@ -19,6 +19,8 @@ It is specifically modified to run on modern MacOS systems with Silicon processo
 
 This comprehensive guide provides detailed instructions for configuring CrossOver to enable modding in a Steam game using r2modman. Our example game is "ROUNDS."
 
+You can find all the necessary files in the [Releases](https://github.com/m0dtheory/r2modmanPlus-crossover/releases) page.
+
 ### Step-by-Step Configuration
 
 Follow these steps to successfully configure CrossOver for modding:
