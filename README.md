@@ -73,7 +73,7 @@ Follow these steps to successfully configure CrossOver for modding:
 
        > Tip: The Steam game ID is available within the "games.json" file.
 
-9. **Adjust Launcher Naming:**
+9. **Adjust Launcher Name:**
    - Navigate to the bottle's folder and proceed to `/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/desktopdata/cxmenu`.
    - Open `cxmenu_macosx.plist` using a text editor.
    - Substitute `<key>r2modmanPlus-Modded</key>` with the chosen game name. For instance, `<key>RoundsModded</key>`.
