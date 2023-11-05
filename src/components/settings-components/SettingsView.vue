@@ -113,9 +113,7 @@ import UtilityMixin from '../mixins/UtilityMixin.vue';
                     const settings = await ManagerSettings.getSingleton(this.activeGame);
                     if (settings.getContext().gameSpecific.gameDirectory !== null) {
                         const directory = await GameDirectoryResolverProvider.instance.getDirectory(this.activeGame);
-                        if (!(directory instanceof R2Error)) {
                             return directory;
-                        }
                     }
                     return 'Please set manually';
                 },
