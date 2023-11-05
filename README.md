@@ -8,61 +8,59 @@
 |---|---|---|---|---|---|---|
 
 ## This fork
+
 > [!NOTE]
->This modification was crafted with a focus on enhancing my own convenience and should not be considered suitable for production. If circumstances allow, I plan to integrate CrossOver overrides more extensively into the Settings menu of each individual game.
+> This modification was crafted with a focus on enhancing my own convenience and should not be considered suitable for production. If circumstances allow, I plan to integrate CrossOver overrides more extensively into the Settings menu of each individual game.
 
-This fork is a slightly modified version of r2modman. 
+This fork is a slightly modified version of r2modman. It is specifically modified to run on modern MacOS systems with Silicon processors. The automatic directory detection and validation was removed so it can be used with more flexibility. This version also features an optional JSON that lets you define launcher overrides for easier use with CrossOver (+ Game Porting Toolkit).
 
-It is specifically modified to run on modern MacOS systems with Silicon processors. The automatic directory detection and validation was removed so it can be used with more flexibility. This version also features an optional json that lets you define launchers overrides for easier use with CrossOver (+ Game Porting Toolkit).
-
-## Configuring CrossOver to Mod a Steam Game with r2modman
+### Configuring CrossOver to Mod a Steam Game with r2modman
 
 This comprehensive guide provides detailed instructions for configuring CrossOver to enable modding in a Steam game using r2modman. Our example game is "ROUNDS."
 
 You can find all the necessary files in the [Releases](https://github.com/m0dtheory/r2modmanPlus-crossover/releases) page.
 
-### Step-by-Step Configuration
+#### Step-by-Step Configuration
 
 Follow these steps to successfully configure CrossOver for modding:
 
 1. **Create an r2modman Profile:**
-Initiate the process by creating a dedicated r2modman profile for the targeted game.
+   Initiate the process by creating a dedicated r2modman profile for the targeted game.
 
 2. **Get the Appropriate BepInEx Pack:**
-Get the BepInEx Pack designed for your game through r2modman.
+   Get the BepInEx Pack designed for your game through r2modman.
 
-    ![](https://i.imgur.com/2cQSduf.png)
+   ![](https://i.imgur.com/2cQSduf.png)
 
-4. **Establish a New Bottle and Install Steam:**
-Within CrossOver, create a new bottle and proceed to install Steam.
+3. **Establish a New Bottle and Install Steam:**
+   Within CrossOver, create a new bottle and proceed to install Steam.
 
    ![](https://i.imgur.com/XClGdKE.png)
 
-5. **Game Installation:**
-Launch Steam and proceed to install the game of interest (in our case, "ROUNDS").
+4. **Game Installation:**
+   Launch Steam and proceed to install the game of interest (in our case, "ROUNDS").
 
-6. **Configure CrossOver for Optimal Performance:**
-Fine-tune CrossOver settings to ensure the game's optimal launch and performance. Detailed configurations can be found in readily available online documentation.
+5. **Configure CrossOver for Optimal Performance:**
+   Fine-tune CrossOver settings to ensure the game's optimal launch and performance. Detailed configurations can be found in readily available online documentation.
 
-7. **Extraction of required files:**
-Within the bottle's `c_drive` directory, navigate to the game folder located in `/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS`. Extract the contents of the provided `r2modmanPlus-crossover_bottle.zip` into this directory. This action will create a folder labeled `r2modmanPlus`, which should be located alongside the game's primary executable, "Rounds.exe."
+6. **Extraction of required files:**
+   Within the bottle's `c_drive` directory, navigate to the game folder located in `/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS`. Extract the contents of the provided `r2modmanPlus-crossover_bottle.zip` into this directory. This action will create a folder labeled `r2modmanPlus`, which should be located alongside the game's primary executable, "Rounds.exe."
 
    ![](https://i.imgur.com/nvzULGU.png)
 
-8. **Wine Configuration:**
+7. **Wine Configuration:**
    - Access the bottle's Wine Configurations.
      
        ![](https://i.imgur.com/llYQyyO.png)
    - Proceed to the Libraries tab and add `winhttp.dll` as a new override library.
    - Navigate to the Drives tab and mount the BepInEx folder from your r2modman profile to the "E:\" drive. For reference, a sample path could resemble: `/Users/USER/Library/Application Support/r2modmanPlus-local/ROUNDS/profiles/Default/BepInEx`.
-    <br>
-    <img src="https://i.imgur.com/btThXvS.png" width="350">
-    <img src="https://i.imgur.com/6LHy6ra.png" width="350">
+   <br>
+   <img src="https://i.imgur.com/btThXvS.png" width="350"><img src="https://i.imgur.com/6LHy6ra.png" width="350">
 
-9. **Creation of the Modded Launcher:**
+8. **Creation of the Modded Launcher:**
    - Under the bottle's Run Command settings, browse to the game folder.
 
-     ![](https://i.imgur.com/u0jhP28.png)
+       ![](https://i.imgur.com/u0jhP28.png)
    - Select `r2modmanPlus-Modded.bat` as the designated command.
    - Append the Steam game ID and "modded" as command arguments.
    - Save this customized command as a launcher. Example:
@@ -70,28 +68,29 @@ Within the bottle's `c_drive` directory, navigate to the game folder located in 
      ```
      "/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS/r2modmanPlus/r2modmanPlus-Modded.bat" 1557740 modded
      ```
-     <img src="https://i.imgur.com/V7D7eSN.png" width="500">
-        
-        > Tip: The Steam game ID is available within the "games.json" file.
 
-10. **Adjust Launcher Naming:**
+       <img src="https://i.imgur.com/V7D7eSN.png" width="500">
+
+       > Tip: The Steam game ID is available within the "games.json" file.
+
+9. **Adjust Launcher Naming:**
    - Navigate to the bottle's folder and proceed to `/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/desktopdata/cxmenu`.
    - Open `cxmenu_macosx.plist` using a text editor.
    - Substitute `<key>r2modmanPlus-Modded</key>` with the chosen game name. For instance, `<key>RoundsModded</key>`.
    - Save this file and restart CrossOver.
 
-11. **Creation of the Vanilla Launcher:**
+10. **Creation of the Vanilla Launcher:**
     - Replicate step 8's procedure but opt for "r2modmanPlus-Vanilla.bat" this time.
     - Use "vanilla" as the second command argument. The following example reflects this adjustment:
-    
+
       ```
       "/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS/r2modmanPlus/r2modmanPlus-Vanilla.bat" 1557740 vanilla
       ```
 
-12. **Update Vanilla Launcher Name:**
+11. **Update Vanilla Launcher Name:**
     - Repeat step 9 to implement the modifications to the name of the vanilla launcher.
 
-       > Tip: It is possible to set custom icons for CrossOver launchers within the "cxmenu_macosx.plist" file.
+      > Tip: It is possible to set custom icons for CrossOver launchers within the "cxmenu_macosx.plist" file.
 
 12. **Accessing Newly Created Launchers:**
     The custom launchers are now available within `~/Application/CrossOver/` in the form of .app files.
@@ -101,20 +100,22 @@ Within the bottle's `c_drive` directory, navigate to the game folder located in 
 
 Your CrossOver environment should now be ready for modding the selected Steam game with r2modman.
 
-## Optional JSON
-You can find an optional json in ```r2modman.app/Contents/Frameworks/games.json```
-For each games, a launcher override can be defined in this file. Ex:
-```
-{  
-    ...
-   "r2modman": { 
+### Optional JSON
+
+You can find an optional JSON in `r2modman.app/Contents/Frameworks/games.json`.
+
+For each game, a launcher override can be defined in this file. For example:
+
+```json
+{
+   ...
+   "r2modman": {
         "crossOverLaunchers": {"modded": "/Users/USER/Applications/CrossOver/GAME/MODDEDGAME.app", "vanilla": "/Users/USER/Applications/CrossOver/GAME/GAME.app"},
         ...
     }
-    ...
+   ...
 }
 ```
-
 ## Features
 - Support for Risk of Rain 2, Dyson Sphere Program, Valheim, GTFO, BONEWORKS, and more
 - A clean user interface designed to make modding as simple as possible
