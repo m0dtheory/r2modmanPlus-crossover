@@ -80,8 +80,8 @@ Follow these steps to successfully configure CrossOver for modding:
    - Save this file and restart CrossOver.
 
 10. **Creation of the Vanilla Launcher:**
-    - Replicate step 8's procedure but opt for "r2modmanPlus-Vanilla.bat" this time.
-    - Use "vanilla" as the second command argument. The following example reflects this adjustment:
+    - Replicate step 8's procedure but opt for `r2modmanPlus-Vanilla.bat` this time.
+    - Use `vanilla` as the second command argument. The following example reflects this adjustment:
 
       ```
       "/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS/r2modmanPlus/r2modmanPlus-Vanilla.bat" 1557740 vanilla
