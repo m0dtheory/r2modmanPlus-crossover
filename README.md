@@ -36,18 +36,18 @@ Within CrossOver, create a new bottle and proceed to install Steam.
 
    ![Installation Screenshot](https://i.imgur.com/XClGdKE.png)
 
-5. **Game Installation:**
+4. **Game Installation:**
 Launch Steam and proceed to install the game of interest (in our case, "ROUNDS").
 
-6. **Configure CrossOver for Optimal Performance:**
+5. **Configure CrossOver for Optimal Performance:**
 Fine-tune CrossOver settings to ensure the game's optimal launch and performance. Detailed configurations can be found in readily available online documentation.
 
-7. **Extraction of required files:**
+6. **Extraction of required files:**
 Within the bottle's `c_drive` directory, navigate to the game folder located in `/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS`. Extract the contents of the provided `r2modmanPlus-crossover_bottle.zip` into this directory. This action will create a folder labeled `r2modmanPlus`, which should be located alongside the game's primary executable, "Rounds.exe."
 
    ![Extraction Screenshot](https://i.imgur.com/nvzULGU.png)
 
-9. **Wine Configuration:**
+7. **Wine Configuration:**
    - Access the bottle's Wine Configurations.
      
    ![](https://i.imgur.com/llYQyyO.png)
@@ -57,7 +57,7 @@ Within the bottle's `c_drive` directory, navigate to the game folder located in 
     <img src="https://i.imgur.com/btThXvS.png" width="350">
     <img src="https://i.imgur.com/6LHy6ra.png" width="350">
 
-10. **Creation of the Modded Launcher:**
+8. **Creation of the Modded Launcher:**
    - Under the bottle's Run Command settings, browse to the game folder.
     ![](https://i.imgur.com/u0jhP28.png)
    - Select `r2modmanPlus-Modded.bat` as the designated command.
@@ -70,13 +70,13 @@ Within the bottle's `c_drive` directory, navigate to the game folder located in 
      <img src="https://i.imgur.com/V7D7eSN.png" width="500">
    > Tip: The Steam game ID is available within the "games.json" file.
 
-11. **Adjust Launcher Naming:**
+9. **Adjust Launcher Naming:**
    - Navigate to the bottle's folder and proceed to `/Users/tanktheory/Library/Application Support/CrossOver/Bottles/NEW/desktopdata/cxmenu`.
    - Open `cxmenu_macosx.plist` using a text editor.
    - Substitute `<key>r2modmanPlus-Modded</key>` with the chosen game name. For instance, `<key>RoundsModded</key>`.
    - Save this file and restart CrossOver.
 
-11. **Creation of the Vanilla Launcher:**
+10. **Creation of the Vanilla Launcher:**
     - Replicate step 8's procedure but opt for "r2modmanPlus-Vanilla.bat" this time.
     - Use "vanilla" as the second command argument. The following example reflects this adjustment:
     
@@ -84,7 +84,7 @@ Within the bottle's `c_drive` directory, navigate to the game folder located in 
       "/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS/r2modmanPlus/r2modmanPlus-Vanilla.bat" 1557740 vanilla
       ```
 
-12. **Update Vanilla Launcher Name:**
+11. **Update Vanilla Launcher Name:**
     - Repeat step 9 to implement the modifications to the name of the vanilla launcher.
 
    > Tip: It is possible to set custom icons for CrossOver launchers within the "cxmenu_macosx.plist" file.
