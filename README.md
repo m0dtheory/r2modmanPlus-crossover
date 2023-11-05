@@ -75,7 +75,7 @@ Within the bottle's `c_drive` directory, navigate to the game folder located in 
         > Tip: The Steam game ID is available within the "games.json" file.
 
 10. **Adjust Launcher Naming:**
-   - Navigate to the bottle's folder and proceed to `/Users/tanktheory/Library/Application Support/CrossOver/Bottles/NEW/desktopdata/cxmenu`.
+   - Navigate to the bottle's folder and proceed to `/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/desktopdata/cxmenu`.
    - Open `cxmenu_macosx.plist` using a text editor.
    - Substitute `<key>r2modmanPlus-Modded</key>` with the chosen game name. For instance, `<key>RoundsModded</key>`.
    - Save this file and restart CrossOver.
