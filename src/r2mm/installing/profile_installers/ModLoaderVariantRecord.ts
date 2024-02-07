@@ -74,6 +74,7 @@ const MODLOADER_PACKAGES = [
  * capabilities elsewhere in the project (see the GAME_NAME type below).
  */
 const VARIANTS = {
+    LethalCompany: MODLOADER_PACKAGES,
     RiskOfRain2: MODLOADER_PACKAGES,
     ThunderstoreDev: MODLOADER_PACKAGES,
     DysonSphereProgram: MODLOADER_PACKAGES,
