@@ -24,6 +24,7 @@ export default class InstallationRuleApplicator {
 
     public static apply() {
         InstallationRules.RULES = [
+            buildBepInExRules("LethalCompany"),
             buildBepInExRules("RiskOfRain2"),
             InstallRules_ThunderstoreDev(),
             buildBepInExRules("DysonSphereProgram"),
