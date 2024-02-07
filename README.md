@@ -1,5 +1,8 @@
 # r2modman
 
+> [!NOTE]
+> This is forked from the CrossOver modification of r2modman for implementing the support for the game Lethal Company.
+
 [![Discord](https://img.shields.io/discord/727304496522461185?label=r2modman%20Discord&style=for-the-badge)](https://discord.gg/jE2zWHY)
 
 [![GitHub](https://img.shields.io/github/license/ebkr/r2modmanPlus?color=orange&style=for-the-badge)](https://github.com/ebkr/r2modmanPlus)
@@ -50,7 +53,7 @@ Follow these steps to successfully configure CrossOver for modding:
 
 7. **Wine Configuration:**
    - Access the bottle's Wine Configurations.
-     
+
        ![](https://i.imgur.com/llYQyyO.png)
    - Proceed to the Libraries tab and add `winhttp.dll` as a new override library.
    - Navigate to the Drives tab and mount the BepInEx folder from your r2modman profile to the "E:\" drive. For reference, a sample path could resemble: `/Users/USER/Library/Application Support/r2modmanPlus-local/ROUNDS/profiles/Default/BepInEx`.
