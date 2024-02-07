@@ -13,6 +13,13 @@ export default class GameManager {
     private static _activeGame: Game;
 
     private static _gameList = [
+
+        new Game("Lethal Company", "LethalCompany", "LethalCompany",
+            "Lethal Company", ["Lethal Company.exe"], "LethalCompany_Data",
+            "https://thunderstore.io/c/lethal-company/api/v1/package/", "https://raw.githubusercontent.com/ebkr/r2modmanPlus/master/modExclusions.md",
+            [new StorePlatformMetadata(StorePlatform.STEAM, "1966720")], "LethalCompany.png",
+            GameSelectionDisplayMode.VISIBLE, GameInstanceType.GAME, PackageLoader.BEPINEX, []),
+        
         new Game('Risk of Rain 2', 'RiskOfRain2', 'RiskOfRain2',
             'Risk of Rain 2', ['Risk of Rain 2.exe'], 'Risk of Rain 2_Data',
             'https://thunderstore.io/api/v1/package/', 'https://raw.githubusercontent.com/ebkr/r2modmanPlus/master/modExclusions.md',
