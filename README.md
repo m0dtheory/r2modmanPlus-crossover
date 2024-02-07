@@ -1,8 +1,5 @@
 # r2modman
 
-> [!NOTE]
-> This is forked from the CrossOver modification of r2modman for implementing the support for the game Lethal Company.
-
 [![Discord](https://img.shields.io/discord/727304496522461185?label=r2modman%20Discord&style=for-the-badge)](https://discord.gg/jE2zWHY)
 
 [![GitHub](https://img.shields.io/github/license/ebkr/r2modmanPlus?color=orange&style=for-the-badge)](https://github.com/ebkr/r2modmanPlus)
