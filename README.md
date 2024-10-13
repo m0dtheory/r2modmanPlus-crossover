@@ -4,32 +4,123 @@
 
 [![GitHub](https://img.shields.io/github/license/ebkr/r2modmanPlus?color=orange&style=for-the-badge)](https://github.com/ebkr/r2modmanPlus)
 
-| [Features](#features) | [What is a mod manager?](#what-is-a-mod-manager) | [Installing](#installing) | [Help](#help) | [Feedback and suggestions](#feedback-and-suggestions) | [Changelog](#changelog) | [Screenshots](#screenshots) |
-|---|---|---|---|---|---|---|
-
 ## This fork
+
 > [!NOTE]
->This adaptation was designed for my own ease of use and is in no way production ready. If I eventually find time, I will properly integrate the crossover overrides in the Settings menu of each games.
+> This modification was crafted with a focus on enhancing my own convenience and should not be considered suitable for production.
 
-This fork is a slightly modified version of r2modman. 
+This fork is a slightly modified version of r2modman. It is specifically modified to run on modern MacOS systems with Silicon processors. The automatic directory detection and validation was removed so it can be used with more flexibility. This version also features a JSON in the .app package contents that lets you define launcher overrides for easier use with CrossOver (+ Game Porting Toolkit).
 
-It is specifically modified to run on modern MacOS systems with Silicon processors. The automatic directory detection and validation was removed so it can be used with more flexibility. This version also features an optional json that lets you define launchers overrides for easier use with CrossOver (+ Game Porting Toolkit).
+### Installation on MacOS
+To install the mod manager on MacOS, you need to build it from source using NodeJS and Electron.
 
->Instructions on how to setup CrossOver bottles will eventually be published.
+#### Build from source
+1. Clone the repository or download the zip in [Releases](https://github.com/m0dtheory/r2modmanPlus-crossover/releases)
+2. Use node v20.18.0 (npm v10.8.2)
+4. Make sure you have yarn installed globally `npm install -g yarn`
+5. Run `yarn`
+6. Run `yarn run run` to test that the application builds
+7. Run `yarn run build-osx` to build the application
+8. The .app will be located in /dist/electron/Packaged/mac-arm64
+9. Move the app to your Applications folder
 
-## Optional JSON
-You can find an optional json in ```r2modman.app/Contents/Frameworks/games.json```
-For each games, a launcher override can be defined in this file. Ex:
-```
-{  
-    ...
-   "r2modman": { 
-        "crossOverLaunchers": {"modded": "/Users/USER/Applications/CrossOver/GAME/MODDEDGAME.app", "vanilla": "/Users/USER/Applications/CrossOver/GAME/GAME.app"},
+### Configuring CrossOver to Mod a Steam Game with r2modman
+
+This comprehensive guide provides detailed instructions for configuring CrossOver to enable modding in a Steam game using r2modman. Our example game is "ROUNDS."
+
+You can find all the necessary files in the [Releases](https://github.com/m0dtheory/r2modmanPlus-crossover/releases) page.
+
+#### Step-by-Step Configuration
+
+Follow these steps to successfully configure CrossOver for modding:
+
+1. **Create a New Bottle and Install Steam:**
+   Within CrossOver, create a new bottle and proceed to install Steam.
+
+   <img src="https://i.imgur.com/XClGdKE.png" width="700px"/>
+
+2. **Game Installation:**
+   Launch Steam and proceed to install the game of interest (in our case, "ROUNDS"). Make sure you are running the right version of the game for the mods to work.
+
+3. **Configure CrossOver for Optimal Performance:**
+   Fine-tune CrossOver settings to ensure the game's optimal launch and performance. Detailed configurations can be found in readily available online documentation.
+
+4. **Extraction of required files:**
+   Within the bottle's `c_drive` directory, navigate to the game folder located in `/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS`. Extract the contents of the provided `r2modmanPlus-crossover_bottle.zip` into this directory. This action will create a folder labeled `r2modmanPlus`, which should be located alongside the game's primary executable, "Rounds.exe."
+   <br>
+   <img src="https://i.imgur.com/nvzULGU.png" width="350"/>
+
+5. **Wine Configuration:**
+   - Access the bottle's Wine Configurations.
+       
+        <img src="https://i.imgur.com/llYQyyO.png" width="350"/>
+   - Proceed to the Libraries tab and add `winhttp.dll` as a new override library.
+   - Navigate to the Drives tab and mount the `profiles` folder from your r2modman application to the "E:\" drive. For reference, your path could look like: `/Users/USER/Library/Application Support/r2modmanPlus-local/ROUNDS/profiles`.
+   <br>
+   <img src="https://i.imgur.com/btThXvS.png" width="350"><img src="https://i.imgur.com/L68NXSh.png" width="350">
+
+6. **Creation of the Modded Launcher:**
+   - Under the bottle's Run Command settings, browse to the game folder and to the r2modmanPlus folder.
+
+       <img src="https://i.imgur.com/u0jhP28.png" width="350"/>
+       
+   - Select `r2modmanPlus-crossover.bat` as the designated command.
+   - Save this command as a launcher. Example:
+
+     ```
+     "/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/drive_c/Program Files (x86)/Steam/steamapps/common/ROUNDS/r2modmanPlus/r2modmanPlus-crossover.bat"
+     ```
+
+       <img src="https://i.imgur.com/7IUwvEE.png" width="500">
+
+7. **Adjust Launcher Name:**
+   - Navigate to the bottle's folder and proceed to `/Users/USER/Library/Application Support/CrossOver/Bottles/NEW/desktopdata/cxmenu`.
+   - Open `cxmenu_macosx.plist` using a text editor.
+   - Substitute `<key>r2modmanPlus-Modded</key>` with the chosen game name. For instance, `<key>RoundsModded</key>`.
+   - Save this file and restart CrossOver.
+    > Tip: It is possible to set custom icons for CrossOver launchers within the "cxmenu_macosx.plist" file.
+
+8. **Accessing Newly Created Launchers:**
+    The custom launchers are now available within your user's Applications folder `~/Application/CrossOver/` in the form of .app files. The launcher will require a command from r2modman before it can launch modded.
+
+Your CrossOver bottle should now be ready for modding the selected Steam game with r2modman. Head over to the next section to see how to setup r2modman to launch the game modded or vanilla.
+
+### Games JSON override
+
+Right-click the r2modman app and click `Show Package Contents` and open the games.json file with a text editor.
+
+Find the object that match your game and add the crossoverLauncher in the r2modman object. For example:
+
+```json
+...
+"rounds": {
+   ...
+   "r2modman": {
+        "crossOverLauncher": "/Users/USER/Applications/CrossOver/GAME/MODDEDGAME.app",
+        "internalFolderName": "ROUNDS",
+        "dataFolderName": "Rounds_Data",
+        "settingsIdentifier": "ROUNDS",
+        "packageIndex": "https://rounds.thunderstore.io/api/v1/package/",
         ...
     }
-    ...
+   ...
 }
+...
 ```
+> Tip: You can modify this file later to add more bottles for different games without needing to rebuild the app.
+
+### Launching game via r2modman
+Create a profile and add mods for the game linked to your bottle. When you’re ready, click the `Start Modded` button. This will execute the launcher you set up in the previous steps, transferring your r2modman profile to the bottle and launching the game with mods enabled.
+
+   >Tip: To play the game without mods afterward, simply relaunch using `Start Vanilla` in r2modman. This will deactivate the mods and send the necessary commands to the bottle.
+---
+
+<br>
+
+## Original README
+
+| [Features](#features) | [What is a mod manager?](#what-is-a-mod-manager) | [Installing](#installing) | [Help](#help) | [Feedback and suggestions](#feedback-and-suggestions) | [Changelog](#changelog) | [Screenshots](#screenshots) |
+|---|---|---|---|---|---|---|
 
 ## Features
 - Support for Risk of Rain 2, Dyson Sphere Program, Valheim, GTFO, BONEWORKS, and more
