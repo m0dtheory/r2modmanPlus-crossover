@@ -34,7 +34,7 @@ export default class SteamGameRunner_Darwin extends GameRunnerProvider {
     async start(game: Game, args: string, action: string): Promise<void | R2Error> {
         let gameDetails = {};
         let displayName = game.displayName;
-        var jsonpath = path.join(process.argv[0], '../../../../', 'games.json');
+        var jsonpath = path.join(process.argv[0], '../../../../../../', 'games.json');
         var jsonpathexists = await FsProvider.instance.exists(jsonpath);
 
         async function launchMacOSSteam(){
@@ -90,7 +90,7 @@ export default class SteamGameRunner_Darwin extends GameRunnerProvider {
                         cmd = `"${gameLauncher}/Contents/MacOS/Menu Helper" vanilla-${gameId}`;
                     }
                     LoggerProvider.instance.Log(LogSeverity.INFO, `Running command: ${cmd}`);
-                    execSync(cmd);
+                    exec(cmd);
                 } catch (err) {
                     LoggerProvider.instance.Log(LogSeverity.ACTION_STOPPED, 'Error was thrown whilst starting the game');
                     LoggerProvider.instance.Log(LogSeverity.ERROR, (err as Error).message);

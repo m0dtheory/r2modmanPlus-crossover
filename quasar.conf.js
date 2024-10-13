@@ -220,7 +220,13 @@ module.exports = configure(function(/* ctx */) {
                 },
                 mac: {
                     category: "games",
-                    icon: "src/assets/icon"
+                    icon: "src/assets/icon",
+                    extraResources: [
+                        {
+                          from: 'src/assets/data/games.json',
+                          to: '../../games.json'
+                        }
+                    ]
                 }
             },
 
